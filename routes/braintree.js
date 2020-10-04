@@ -3,7 +3,7 @@ const router = express.Router();
 
 const { requireSignin, isAuth } = require('../controllers/auth');
 const { userById } = require('../controllers/user');
-const { generateToken, processPayment } = require('../constrollers/braintree');
+const { generateToken, processPayment } = require('../controllers/braintree');
 
 // Routes
 

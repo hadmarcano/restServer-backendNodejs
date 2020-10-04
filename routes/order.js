@@ -15,18 +15,18 @@ const {
 const {
     create,
     listOrders,
-    getstatusValues,
+    getStatusValues,
     orderById,
     updateOrderStatus
 } = require('../controllers/order');
 
 const {decreaseQuantity} = require('../controllers/product');
-const { use } = require('./auth');
+
 
 // Routes
 
 router.post(
-    '/order/crate/:userId',
+    '/order/create/:userId',
     requireSignin,
     isAuth,
     addOrderToUserHistory,
@@ -41,7 +41,7 @@ router.get(
     requireSignin,
     isAuth,
     isAdmin,
-    getstatusValues
+    getStatusValues
 );
 
 router.put(

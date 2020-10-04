@@ -16,7 +16,7 @@ const {
 
 // Routes
 
-router.get('/secret/:userId', requireSignin, isAuth, isAdmin, (req, res) =>{
+router.get('/secret/:userId', requireSignin, isAuth, isAdmin, (req, res) => {
     res.json({
         user: req.profile
     });
