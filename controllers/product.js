@@ -138,9 +138,7 @@ exports.update = (req,res) => {
                     error: errorHandler(err)
                 });
             }
-
             res.json(result);
-            
         });
     });
 };
