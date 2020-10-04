@@ -20,7 +20,7 @@ const CarItem = mongoose.model('CarItem',CarItemSchema);
 
 const orderSchema = new mongoose.Schema(
     {
-        product: [CarItemSchema],
+        products: [CarItemSchema],
         transaction_id: {},
         amount:{type:Number},
         address: String,
