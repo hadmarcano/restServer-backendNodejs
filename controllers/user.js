@@ -50,7 +50,7 @@ exports.addOrderToUserHistory = (req, res, next) => {
             _id: item._id,
             name: item.name,
             description: item.category,
-            quantity: item.queantity,
+            quantity: item.quantity,
             transaction_id: req.body.order.transaction_id,
             amount: req.body.order.amount
         });
