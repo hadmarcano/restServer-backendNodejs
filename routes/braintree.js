@@ -7,7 +7,7 @@ const { generateToken, processPayment } = require('../controllers/braintree');
 
 // Routes
 
-router.get('/braintree/getToken/:userId', requireSignin. isAuth, generateToken);
+router.get('/braintree/getToken/:userId', requireSignin, isAuth, generateToken);
 
 router.post(
     '/braintree/payment/:userId',

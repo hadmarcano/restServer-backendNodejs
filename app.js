@@ -8,6 +8,9 @@ const cookieParser = require('cookie-parser');
 const cors = require('cors');
 const expressValidator = require('express-validator');
 require('dotenv').config();
+const swaggerJsDoc = require('swagger-jsdoc');
+const swaggerUi = require('swagger-ui-express');
+
 
 // import routers
 
@@ -50,14 +53,40 @@ app.use(cookieParser());
 app.use(expressValidator());
 app.use(cors());
 
+// Extended: https://swagger.io/specification/#infoObject
+const swaggerOptions = {
+    swaggerDefinition: {
+        openapi: '3.0.0',
+        info: {
+            version: '1.0.0',
+            title: 'Ecommerce API',
+            description: 'Ecommerce API Information',
+            contact: {
+                name: 'miguel_dev'
+            },
+            servers: ['http://localhost:8000']
+        }
+    },
+    // Definition the apis with swagger
+    apis: ['./routes/*.js']
+};
+
+// Final definitions with swagger-express
+
+const swaggerDocs = swaggerJsDoc(swaggerOptions);
+
+app.use('api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
+
+
+
 // Routes Middlewares
 
-// app.use('/api',authRoutes);
-// app.use('/api',userRoutes);
-// app.use('/api',categoryRoutes);
-// app.use('/api',productRoutes);
-// app.use('/api',brainTreeRoutes);
-// app.use('/api',orderRoutes);
+app.use('/api',authRoutes);
+app.use('/api',userRoutes);
+app.use('/api',categoryRoutes);
+app.use('/api',productRoutes);
+app.use('/api',brainTreeRoutes);
+app.use('/api',orderRoutes);
 
 // Port
 

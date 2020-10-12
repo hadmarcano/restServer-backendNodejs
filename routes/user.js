@@ -30,6 +30,6 @@ router.get('/orders/by/user/:userId', requireSignin, isAuth, isAdmin, purchaseHi
 
 //params
 
-router.params('userId', userById);
+router.param('userId', userById);
 
 module.exports = router;
