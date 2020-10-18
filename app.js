@@ -8,8 +8,8 @@ const cookieParser = require('cookie-parser');
 const cors = require('cors');
 const expressValidator = require('express-validator');
 require('dotenv').config();
-const swaggerJsDoc = require('swagger-jsdoc');
-const swaggerUi = require('swagger-ui-express');
+const swaggerJsDoc = require("swagger-jsdoc");
+const swaggerUi = require("swagger-ui-express");
 
 
 // import routers
@@ -58,24 +58,23 @@ const swaggerOptions = {
     swaggerDefinition: {
         openapi: '3.0.0',
         info: {
-            version: '1.0.0',
-            title: 'Ecommerce API',
-            description: 'Ecommerce API Information',
+            version: "1.0.0",
+            title: "Ecommerce API",
+            description: "Ecommerce API Information",
             contact: {
-                name: 'miguel_dev'
+                name: "miguel_dev"
             },
-            servers: ['http://localhost:8000']
+            servers: ["http://localhost:8000"]
         }
     },
-    // Definition the apis with swagger
+    // definition the apis with swagger 
     apis: ['./routes/*.js']
 };
 
 // Final definitions with swagger-express
 
 const swaggerDocs = swaggerJsDoc(swaggerOptions);
-
-app.use('api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 
 
 
