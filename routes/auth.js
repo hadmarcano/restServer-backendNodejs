@@ -15,6 +15,42 @@ const {userSignupValidator} = require('../validator/index');
 
 // Routes
 
+/**
+ * @swagger
+ *  definitions:
+ *   NewUser:
+ *      type: object
+ *      required:
+ *          - email
+ *          - password
+ *      properties:
+ *          name:
+ *              type: string
+ *          email:
+ *              type: string
+ *          password:
+ *              type: string
+ */
+
+/**
+ * @swagger
+ * /api/signup:
+ *  post:
+ *    summary: Create a User or User Register
+ *    description: Use to request an user register
+ *    requestBody:
+ *      content:
+ *          application/json:
+ *            schema:
+ *              $ref: '#/definitions/NewUser'
+ *    produces:
+ *      - application/json
+ *    responses:
+ *      "200":
+ *         description: Object with user registered!
+ *      "400":
+ *         description: A bad request response!
+ */
 router.post('/signup',userSignupValidator, signup);
 
 /**
@@ -30,9 +66,11 @@ router.post('/signup',userSignupValidator, signup);
  *            properties:
  *              email:
  *                  type: string
+ *                  required: true
  *                  description: email user valid
  *              password:
  *                  type: string
+ *                  required: true
  *                  description: password user valid
  *    responses:
  *      "200":

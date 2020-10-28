@@ -60,9 +60,10 @@ const swaggerOptions = {
         info: {
             version: "1.0.0",
             title: "Ecommerce API",
-            description: "Ecommerce API Information",
+            description: "Ecommerce API Rest Server",
             contact: {
-                name: "miguel_dev"
+                name: "Héctor Díaz",
+                url: "https://www.linkedin.com/in/hector-adolfo-diaz-marcano-ab0a27aa/"
             },
             servers: ["http://localhost:8000"]
         }
