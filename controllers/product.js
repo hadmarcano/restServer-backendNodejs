@@ -6,7 +6,7 @@ const { errorHandler } = require("../helpers/dbErrorHandler");
 
 //Middlewares Rest
 
-exports.productById = (req, res, nezt, id) => {
+exports.productById = (req, res, next, id) => {
   Product.findById(id)
     .populate("category")
     .exec((err, product) => {
@@ -157,6 +157,7 @@ exports.list = (req, res) => {
       }
       res.json(products);
     });
+  
 };
 
 /**
